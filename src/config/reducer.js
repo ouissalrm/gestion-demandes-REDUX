@@ -1,14 +1,40 @@
-export const intisialState={
-    demandes:[{
-        id:1,
-        nomCandidat:"wissal khrams",
-        formation:"Développement Web",
-        secteur:"Diital & Intelligence Artificielle",
-        Durée:12,
-        Statut:["En attente","Aceeptetée","Réfusée"]
-    }
+export const intisialState = {
+    demandes: [
+        {
+            id: 1,
+            nomCandidat: "wissal khrams",
+            formation: "Développement Web",
+            secteur: "Digital & Intelligence Artificielle",
+            Durée: 12,
+            Statut: ["En attente", "Acceptée", "Réfusée"]
+        },
+        {
+            id: 2,
+            nomCandidat: "amine salah",
+            formation: "Data Science",
+            secteur: "Data & AI",
+            Durée: 6,
+            Statut: ["En attente", "Acceptée", "Réfusée"]
+        },
+        {
+            id: 3,
+            nomCandidat: "sara benali",
+            formation: "Marketing Digital",
+            secteur: "Communication & Marketing",
+            Durée: 8,
+            Statut: ["En attente", "Acceptée", "Réfusée"]
+        },
+        {
+            id: 4,
+            nomCandidat: "youssef alami",
+            formation: "Cyber Sécurité",
+            secteur: "IT & Sécurité",
+            Durée: 10,
+            Statut: ["En attente", "Acceptée", "Réfusée"]
+        }
     ]
-}
+};
+
 
 export const reducer=(state=intisialState,action)=>{
     switch(action.type){
