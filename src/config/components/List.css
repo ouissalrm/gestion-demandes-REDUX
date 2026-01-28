@@ -1,0 +1,62 @@
+.demandes-container {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.title-demandes {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+}
+
+
+.demandes-table {
+  width: 70%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.demandes-table th,
+.demandes-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.demandes-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.demandes-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.demandes-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.btn {
+  border: none;
+  padding: 6px 10px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  font-size: 13px;
+}
+
+.btn-delete {
+  background-color: orange;
+}
+
+.btn-accept {
+  background-color: green;
+}
+
+.btn-refuse {
+  background-color: red;
+}

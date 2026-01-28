@@ -1,37 +1,60 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import './List.css'
+import { useDispatch, useSelector } from 'react-redux'
 import { data } from 'react-router-dom'
+import { accdemandeAction, refdemandeAction } from '../action';
 
 export default function ListeDemandes() {
     const damandes=useSelector(data=>data.demandes)
+    const dispatch=useDispatch();
   return (
-    <div>
-      <h5>les demandes</h5>
-     <table style={{width:"50%",margin:"auto"}}>
-       <thead>
-         <tr>
-            <th>Candidat</th>
-            <th>Formation</th>
-            <th>Secteur</th>
-            <th>Durée</th>
-            <th>Statut</th>
-            <th>Actions</th>
+   <div className="demandes-container">
+  <h5 className='title-demandes'>Les demandes</h5>
+
+  <table className="demandes-table">
+    <thead>
+      <tr>
+        <th>Candidat</th>
+        <th>Formation</th>
+        <th>Secteur</th>
+        <th>Durée</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {damandes.map((d) => (
+        <tr key={d.id}>
+          <td>{d.nomCandidat}</td>
+          <td>{d.formation}</td>
+          <td>{d.secteur}</td>
+          <td>{d.Durée}</td>
+          <td>{d.Statut}</td>
+          <td>
+            {d.Statut === "En attente" && (
+              <button className="btn btn-delete">Supprimer</button>
+            )}
+
+            <button
+              className="btn btn-accept"
+              onClick={() => dispatch(accdemandeAction(d.id))}
+            >
+              Acceptée
+            </button>
+
+            <button
+              className="btn btn-refuse"
+              onClick={() => dispatch(refdemandeAction(d.id))}
+            >
+              Réfusée
+            </button>
+          </td>
         </tr>
-       </thead>
-       <tbody>
-        {damandes.map((d)=>(
-            <tr>
-            <td>{d.id} </td>
-            <td>{d.formation} </td>
-            <td>{d.secteur} </td>
-            <td>{d.Durée} </td>
-            <td>{d.Statut[0]} </td>
-            <td>{d.Statut[1]} {d.Statut[2]} </td>
-        </tr>
-        ))}
-        
-       </tbody>
-     </table>
-    </div>
+      ))}
+    </tbody>
+  </table>
+</div>
+
   )
 }
