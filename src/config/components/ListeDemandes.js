@@ -2,11 +2,16 @@ import React from 'react'
 import './List.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { data } from 'react-router-dom'
-import { accdemandeAction, refdemandeAction } from '../action';
+import { accdemandeAction, deletedemandeAction, refdemandeAction } from '../action';
 
 export default function ListeDemandes() {
+  
     const damandes=useSelector(data=>data.demandes)
     const dispatch=useDispatch();
+
+    const delatede=(id)=>{
+      dispatch(deletedemandeAction(id))
+    }
   return (
    <div className="demandes-container">
   <h5 className='title-demandes'>Les demandes</h5>
@@ -33,7 +38,7 @@ export default function ListeDemandes() {
           <td>{d.Statut}</td>
           <td>
             {d.Statut === "En attente" && (
-              <button className="btn btn-delete">Supprimer</button>
+              <button className="btn btn-delete" onClick={()=>delatede(d.id)}>Supprimer</button>
             )}
 
             <button

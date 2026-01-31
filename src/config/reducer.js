@@ -49,6 +49,9 @@ export const reducer=(state=intisialState,action)=>{
          return {...state,demandes: state.demandes.map((d) =>
           d.id === action.payload ? { ...d, Statut: "Refusée" } : d)
            }
+        case 'deletede':
+            return {...state,demandes:state.demandes.filter((d)=>d.id!==parseInt(action.payload))}
+
 
         default:
             return state;
